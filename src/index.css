@@ -2,41 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Café Design System - Modern, warm, and inviting */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core café color palette - warm earth tones */
+    --background: 30 20% 98%;
+    --foreground: 25 25% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 30 15% 96%;
+    --card-foreground: 25 25% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 30 15% 96%;
+    --popover-foreground: 25 25% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Coffee-inspired primary colors */
+    --primary: 25 35% 25%;
+    --primary-foreground: 30 20% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Warm secondary tones */
+    --secondary: 35 25% 88%;
+    --secondary-foreground: 25 35% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 35 15% 92%;
+    --muted-foreground: 25 15% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Vibrant café accent - espresso brown */
+    --accent: 20 45% 35%;
+    --accent-foreground: 30 20% 98%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Success green for eco-friendly */
+    --success: 120 35% 45%;
+    --success-foreground: 30 20% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Warm coffee gradient */
+    --coffee-gradient: linear-gradient(135deg, hsl(25 45% 35%), hsl(35 55% 45%));
+    --hero-gradient: linear-gradient(135deg, hsl(25 35% 25%), hsl(35 45% 35%));
+    
+    /* Subtle cream gradient */
+    --cream-gradient: linear-gradient(180deg, hsl(35 25% 96%), hsl(30 20% 92%));
 
-    --radius: 0.5rem;
+    /* Warm shadows */
+    --shadow-warm: 0 4px 20px hsl(25 35% 25% / 0.1);
+    --shadow-coffee: 0 8px 32px hsl(25 45% 35% / 0.15);
+    --shadow-glow: 0 0 40px hsl(35 55% 45% / 0.3);
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 30 20% 98%;
+
+    --border: 35 20% 85%;
+    --input: 35 15% 90%;
+    --ring: 25 35% 25%;
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -94,6 +112,7 @@ All colors MUST be HSL.
   }
 }
 
+/* Custom café animations and utilities */
 @layer base {
   * {
     @apply border-border;
@@ -101,5 +120,71 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Hero gradient backgrounds */
+  .bg-hero-gradient {
+    background: var(--hero-gradient);
+  }
+
+  .bg-coffee-gradient {
+    background: var(--coffee-gradient);
+  }
+
+  .bg-cream-gradient {
+    background: var(--cream-gradient);
+  }
+
+  /* Custom shadows */
+  .shadow-warm {
+    box-shadow: var(--shadow-warm);
+  }
+
+  .shadow-coffee {
+    box-shadow: var(--shadow-coffee);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Smooth hover transitions */
+  .transition-cafe {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Glass morphism effect */
+  .glass-effect {
+    backdrop-filter: blur(10px);
+    background: hsl(var(--background) / 0.8);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  /* Floating animation */
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* Pulse glow for interactive elements */
+  .pulse-glow {
+    animation: pulse-glow 2s infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 5px hsl(var(--accent) / 0.5); }
+    50% { box-shadow: 0 0 20px hsl(var(--accent) / 0.8), 0 0 30px hsl(var(--accent) / 0.4); }
   }
 }

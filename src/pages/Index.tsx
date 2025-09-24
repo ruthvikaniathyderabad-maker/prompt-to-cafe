@@ -1,13 +1,40 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import { HeroSection } from "@/components/HeroSection";
+import { MenuSection } from "@/components/MenuSection";
+import { PhotoGallery } from "@/components/PhotoGallery";
+import { BusinessInfo } from "@/components/BusinessInfo";
+import { LoyaltyWidget } from "@/components/LoyaltyWidget";
+import { Chatbot } from "@/components/Chatbot";
+import { Navigation } from "@/components/Navigation";
+import { Toaster } from "@/components/ui/toaster";
 
 const Index = () => {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <main className="min-h-screen bg-background">
+      <Navigation />
+      
+      {/* Hero Section */}
+      <HeroSection />
+      
+      {/* Menu Section */}
+      <MenuSection />
+      
+      {/* Photo Gallery */}
+      <PhotoGallery />
+      
+      {/* Business Info & Hours */}
+      <BusinessInfo />
+      
+      {/* Loyalty Widget */}
+      <LoyaltyWidget />
+      
+      {/* Chatbot */}
+      <Chatbot isOpen={isChatOpen} onToggle={() => setIsChatOpen(!isChatOpen)} />
+      
+      <Toaster />
+    </main>
   );
 };
 
