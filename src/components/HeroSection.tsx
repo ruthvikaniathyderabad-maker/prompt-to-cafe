@@ -41,7 +41,8 @@ export const HeroSection = () => {
             and a community that feels like home.
           </p>
 
-          {/* CTA Buttons */}
+
+          {/* CTA & Delivery Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Button 
               size="lg" 
@@ -51,7 +52,7 @@ export const HeroSection = () => {
               Explore Menu
               <ArrowDown className="ml-2 w-5 h-5" />
             </Button>
-            
+
             <Button 
               size="lg" 
               className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-coffee px-8 py-4 text-lg"
@@ -59,7 +60,25 @@ export const HeroSection = () => {
             >
               Reserve Table
             </Button>
-            
+
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm px-8 py-4 text-lg"
+              onClick={() => window.open('https://www.zomato.com/hyderabad/artisan-cafe', '_blank')}
+            >
+              Order on Zomato
+            </Button>
+
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm px-8 py-4 text-lg"
+              onClick={() => window.open('https://www.swiggy.com/restaurants/artisan-cafe-hyderabad', '_blank')}
+            >
+              Order on Swiggy
+            </Button>
+
             <Button 
               size="lg" 
               variant="outline" 

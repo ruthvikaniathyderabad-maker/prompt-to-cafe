@@ -11,29 +11,27 @@ import { Toaster } from "@/components/ui/toaster";
 const Index = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
 
+
   return (
-    <main className="min-h-screen bg-background">
-      <Navigation />
-      
-      {/* Hero Section */}
-      <HeroSection />
-      
-      {/* Menu Section */}
-      <MenuSection />
-      
-      {/* Photo Gallery */}
-      <PhotoGallery />
-      
-      {/* Business Info & Hours */}
-      <BusinessInfo />
-      
-      {/* Loyalty Widget */}
-      <LoyaltyWidget />
-      
-      {/* Chatbot */}
-      <Chatbot isOpen={isChatOpen} onToggle={() => setIsChatOpen(!isChatOpen)} />
-      
-      <Toaster />
+    <main className="min-h-screen flex flex-col items-center bg-neutral-50">
+      <div className="w-full max-w-6xl px-4">
+        <Navigation />
+        <div className="space-y-12 pt-24">
+          {/* Hero Section */}
+          <HeroSection />
+          {/* Menu Section */}
+          <MenuSection />
+          {/* Photo Gallery */}
+          <PhotoGallery />
+          {/* Business Info & Hours */}
+          <BusinessInfo />
+          {/* Loyalty Widget */}
+          <LoyaltyWidget />
+        </div>
+        {/* Chatbot */}
+        <Chatbot isOpen={isChatOpen} onToggle={() => setIsChatOpen(!isChatOpen)} />
+        <Toaster />
+      </div>
     </main>
   );
 };
