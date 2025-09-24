@@ -54,6 +54,14 @@ export const HeroSection = () => {
             
             <Button 
               size="lg" 
+              className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-coffee px-8 py-4 text-lg"
+              onClick={() => window.open('https://www.opentable.com/r/artisan-cafe-san-francisco', '_blank')}
+            >
+              Reserve Table
+            </Button>
+            
+            <Button 
+              size="lg" 
               variant="outline" 
               className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm px-8 py-4 text-lg"
             >

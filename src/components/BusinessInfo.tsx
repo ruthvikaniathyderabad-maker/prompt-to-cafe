@@ -136,6 +136,41 @@ export const BusinessInfo = () => {
           </Card>
         </div>
 
+        {/* Delivery Partners Section */}
+        <div className="mt-16">
+          <Card className="shadow-warm">
+            <CardContent className="p-8 text-center">
+              <h3 className="text-3xl font-bold text-foreground mb-4">
+                Order Online
+              </h3>
+              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+                Get your favorite café delights delivered right to your doorstep through our trusted delivery partners.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+                <Button 
+                  variant="outline"
+                  className="flex-1 border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white"
+                  onClick={() => window.open('https://www.zomato.com/san-francisco/artisan-cafe', '_blank')}
+                >
+                  <span className="font-bold">Zomato</span>
+                </Button>
+                <Button 
+                  variant="outline"
+                  className="flex-1 border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white"
+                  onClick={() => window.open('https://www.swiggy.com/restaurants/artisan-cafe-san-francisco', '_blank')}
+                >
+                  <span className="font-bold">Swiggy</span>
+                </Button>
+              </div>
+
+              <p className="text-sm text-muted-foreground mt-4">
+                Free delivery on orders above $25 • Average delivery time: 25-30 mins
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+
         {/* Community Section */}
         <div id="contact" className="mt-16">
           <Card className="shadow-coffee">
@@ -157,6 +192,17 @@ export const BusinessInfo = () => {
                 </Button>
                 <Button variant="outline" className="flex-1">
                   Email Newsletter
+                </Button>
+              </div>
+
+              {/* Reserve Table Button */}
+              <div className="mt-6">
+                <Button 
+                  size="lg"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
+                  onClick={() => window.open('https://www.opentable.com/r/artisan-cafe-san-francisco', '_blank')}
+                >
+                  Reserve Table
                 </Button>
               </div>
 
