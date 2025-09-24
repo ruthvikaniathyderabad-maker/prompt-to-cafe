@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Heart, Camera, Award, Upload } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useToast } from "@/hooks/use-toast";
 import coffeeSpread from "@/assets/coffee-spread.jpg";
 import food1 from "@/assets/food-1.jpg";
 import pastries from "@/assets/pastries.jpg";
@@ -46,6 +47,8 @@ const galleryItems: GalleryItem[] = [
 export const PhotoGallery = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [likedPhotos, setLikedPhotos] = useState<Set<string>>(new Set());
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const { toast } = useToast();
 
   const categories = [
     { id: "all", name: "All Photos", count: galleryItems.length },
@@ -70,6 +73,45 @@ export const PhotoGallery = () => {
     });
   };
 
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      // Validate file type
+      if (!file.type.startsWith('image/')) {
+        toast({
+          title: "Invalid file type",
+          description: "Please select an image file (JPG, PNG, etc.)",
+          variant: "destructive"
+        });
+        return;
+      }
+
+      // Validate file size (max 5MB)
+      if (file.size > 5 * 1024 * 1024) {
+        toast({
+          title: "File too large",
+          description: "Please select an image smaller than 5MB",
+          variant: "destructive"
+        });
+        return;
+      }
+
+      toast({
+        title: "Photo uploaded successfully! 📸",
+        description: "Your photo has been submitted for the monthly challenge. Good luck!",
+      });
+      
+      // Reset the input
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+    }
+  };
+
+  const triggerFileUpload = () => {
+    fileInputRef.current?.click();
+  };
+
   return (
     <section id="gallery" className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -83,10 +125,22 @@ export const PhotoGallery = () => {
           </p>
           
           {/* Upload Button */}
-          <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">
+          <Button 
+            className="bg-accent hover:bg-accent/90 text-accent-foreground"
+            onClick={triggerFileUpload}
+          >
             <Upload className="w-4 h-4 mr-2" />
             Share Your Photo
           </Button>
+          
+          {/* Hidden File Input */}
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/*"
+            onChange={handleFileUpload}
+            className="hidden"
+          />
         </div>
 
         {/* Category Filters */}
@@ -184,7 +238,10 @@ export const PhotoGallery = () => {
             <Button variant="outline">
               View Winners
             </Button>
-            <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">
+            <Button 
+              className="bg-accent hover:bg-accent/90 text-accent-foreground"
+              onClick={triggerFileUpload}
+            >
               Join Challenge
             </Button>
           </div>

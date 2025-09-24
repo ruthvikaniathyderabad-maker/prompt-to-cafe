@@ -149,7 +149,10 @@ export const BusinessInfo = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-                <Button className="flex-1 bg-accent hover:bg-accent/90 text-accent-foreground">
+                <Button 
+                  className="flex-1 bg-accent hover:bg-accent/90 text-accent-foreground"
+                  onClick={() => window.open('https://wa.me/14155551234?text=Hi%20Artisan%20Cafe!%20I%27d%20like%20to%20get%20updates%20about%20your%20menu%20and%20special%20offers.', '_blank')}
+                >
                   WhatsApp Updates
                 </Button>
                 <Button variant="outline" className="flex-1">
