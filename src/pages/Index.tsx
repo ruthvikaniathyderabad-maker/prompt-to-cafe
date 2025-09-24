@@ -13,7 +13,7 @@ const Index = () => {
 
 
   return (
-    <main className="min-h-screen flex flex-col items-center bg-neutral-50">
+    <main className="min-h-screen flex flex-col items-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950">
       <div className="w-full max-w-6xl px-4">
         <Navigation />
         <div className="space-y-12 pt-24">

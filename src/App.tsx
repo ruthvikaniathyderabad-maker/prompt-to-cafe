@@ -14,7 +14,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <div className="bg-neutral-50 min-h-screen text-neutral-900">
+  <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950 min-h-screen text-gray-100">
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
